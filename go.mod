@@ -1,3 +1,3 @@
-module todoList
+module todo-list
 
 go 1.23.4
