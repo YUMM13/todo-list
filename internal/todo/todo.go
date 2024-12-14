@@ -57,3 +57,38 @@ func (todos *Todos) Delete(index int) error {
 	// no need to return a value, so just return nill
 	return nil
 }
+
+func (todos *Todos) Toggle(index int) error {
+	t := *todos
+
+	// return an error if there is one
+	if err := t.validateIndex(index); err != nil {
+		return err
+	}
+
+	isCompleted := t[index].Completed
+
+	// if the task is not completed, add a complete time
+	if !isCompleted {
+		completionTime := time.Now()
+		t[index].CompletedAt = &completionTime
+	}
+
+	// flip its result
+	t[index].Completed = !isCompleted
+
+	return nil
+} 
+
+func (todos *Todos) Edit(index int, task string) error {
+	t := *todos
+
+	// return an error if there is one
+	if err := t.validateIndex(index); err != nil {
+		return err
+	}
+
+	t[index].Title = task
+
+	return nil
+}
