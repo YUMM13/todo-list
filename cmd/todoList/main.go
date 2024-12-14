@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"todo-list/internal/todo"
 )
 
@@ -11,7 +10,6 @@ func main() {
 	todos := todo.Todos{}
 	todos.Add("Get Milk")
 	todos.Add("Cry")
-	fmt.Printf("%v\n", todos)
-	todos.Delete(1)
-	fmt.Printf("%v\n", todos)
+	todos.Toggle(1)
+	todos.Print()
 }

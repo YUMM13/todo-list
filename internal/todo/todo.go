@@ -3,7 +3,11 @@ package todo
 import (
 	"errors"
 	"fmt"
+	"os"
+	"strconv"
 	"time"
+
+	"github.com/aquasecurity/table"
 )
 
 // struct for todo list items, will bundle necessary vars together
@@ -91,4 +95,26 @@ func (todos *Todos) Edit(index int, task string) error {
 	t[index].Title = task
 
 	return nil
+}
+
+func (todos *Todos) Print() {
+	table := table.New(os.Stdout)
+	table.AddHeaders("#", "Task", "Completed?", "Created At", "Completed At")
+	for index, t := range *todos {
+		title := t.Title
+		completed := "N"
+		createTime := t.CreatedAt
+		completedTime := ""
+
+		if t.Completed {
+			completed = "Y"
+		}
+		if t.CompletedAt != nil {
+			completedTime = t.CompletedAt.Format(time.RFC1123)
+		}
+
+		table.AddRow(strconv.Itoa(index + 1), title, completed, createTime.Format(time.RFC1123), completedTime)
+	}
+
+	table.Render()
 }
