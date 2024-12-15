@@ -3,6 +3,7 @@ package main
 import (
 	"todo-list/internal/todo"
 	"todo-list/internal/storage"
+	"todo-list/internal/command"
 )
 
 // main function, will run on execute
@@ -11,14 +12,12 @@ func main() {
 	todos := todo.Todos{}
 
 	// load data from json
-	storage := storage.NewStorage[todo.Todos]("todos.json")
-
-	// populate the todos list with the data in the json file
+	storage := storage.NewStorage[todo.Todos]("../../todos.json")
 	storage.Load(&todos)
-	todos.Add("Get Milk")
-	todos.Add("Cry")
-	todos.Toggle(1)
-	todos.Print()
+
+	// launch cli
+	cmdFlags := command.NewCmdFlags()
+	cmdFlags.Execute(&todos)
 
 	// save the data
 	storage.Save(todos)
