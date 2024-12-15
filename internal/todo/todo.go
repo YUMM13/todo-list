@@ -113,7 +113,7 @@ func (todos *Todos) Print() {
 			completedTime = t.CompletedAt.Format(time.RFC1123)
 		}
 
-		table.AddRow(strconv.Itoa(index + 1), title, completed, createTime.Format(time.RFC1123), completedTime)
+		table.AddRow(strconv.Itoa(index), title, completed, createTime.Format(time.RFC1123), completedTime)
 	}
 
 	table.Render()

@@ -1,14 +1,20 @@
 [
     {
-        "Title": "Get Milk",
+        "Title": "Get milk",
         "Completed": false,
-        "CreatedAt": "2024-12-14T16:51:04.4313978-07:00",
+        "CreatedAt": "2024-12-14T17:17:33.7875498-07:00",
         "CompletedAt": null
     },
     {
-        "Title": "Cry",
+        "Title": "Do homework",
         "Completed": true,
-        "CreatedAt": "2024-12-14T16:51:04.4313978-07:00",
-        "CompletedAt": "2024-12-14T16:51:04.4313978-07:00"
+        "CreatedAt": "2024-12-14T17:17:59.2855972-07:00",
+        "CompletedAt": "2024-12-14T17:18:53.8015995-07:00"
+    },
+    {
+        "Title": "Play basketball",
+        "Completed": false,
+        "CreatedAt": "2024-12-14T17:18:13.3876019-07:00",
+        "CompletedAt": null
     }
 ]
